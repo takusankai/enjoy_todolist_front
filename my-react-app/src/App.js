@@ -10,7 +10,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p>
-          src/app.jsを編集して保存してください。
+          src/app.jsを編集fsして保存してください。
         </p>
         <a
           className="App-link"
