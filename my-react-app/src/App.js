@@ -1,16 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import ToDoApp from "./components/ToDoApp";
+{/*`import logo from './logo.svg';
+import Login from './pages/login';
+import './App.css';`*/}
 
+
+function App() {
+  return (
+    <div className="container is-fluid">
+      <ToDoApp />
+    </div>
+  );
+}
+export default App;
+{/*
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Login />
+        {/*
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p>
-          src/app.jsを編集して保存してください。
+          src/app.jsを編集しaaて保存してください。
         </p>
         <a
           className="App-link"
@@ -20,9 +34,9 @@ function App() {
         >
           Learn React
         </a>
+        
       </header>
     </div>
   );
-}
-
-export default App;
+};
+*/}
