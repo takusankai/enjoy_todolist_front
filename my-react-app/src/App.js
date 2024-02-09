@@ -1,7 +1,7 @@
 import React from 'react';
 import SignInPage from './pages/SignInPage'; // SignInPage コンポーネントをインポート
 import Header from './Header';
-import ToDoApp from "./components/ToDoApp";
+import ToDoApp from "./pages/ToDoApp";
 import './App.css';
 import Sidebar from "./components/sidebar/Sidebar";
 import { Routes, Route } from 'react-router-dom';
@@ -26,6 +26,8 @@ function App() {
         <Route path="/user_info" element={<UserInfo />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
+
+      <ToDoApp />
     </div>
   );
 }
