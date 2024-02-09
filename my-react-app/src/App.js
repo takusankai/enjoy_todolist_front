@@ -6,8 +6,8 @@ import './App.css';
 import Sidebar from "./components/sidebar/Sidebar";
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import TODOList from './pages/TODOList';
-import OtherUsersToDo from './pages/OtherUsersToDo';
+// import TODOList from './pages/TODOList';
+import OtherUsersToDo from './pages/OtherUsersToDo.jsx';
 import UserInfo from './pages/UserInfo';
 import Settings from './pages/Settings';
 
@@ -22,7 +22,6 @@ function App() {
       <Routes>
         <Route path="/login" element={<SignInPage />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/todo_list" element={<ToDoApp />} />
         <Route path="/other_users_todo" element={<OtherUsersToDo />} />
         <Route path="/user_info" element={<UserInfo />} />
         <Route path="/settings" element={<Settings />} />
