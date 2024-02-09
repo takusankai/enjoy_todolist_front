@@ -11,12 +11,12 @@ export const SidebarData = [
   {
     title: "ホーム",
     // icon: <HomeIcon />,
-    link: "/home",
+    link: "/",
   },
   {
     title: "TODOリスト",
     // icon: <AttachEmailIcon />,
-    link: "/todo_list",
+    link: "/todo",
   },
   {
     title: "皆のTODO",
