@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
-import { InputToDo, Filter, ToDo } from './index';
+import { InputToDo, Filter, ToDo } from '../components/index';
 export const  ToDoApp = () => {
   // ランダムなキーを取得
   const getKey = () => Math.random().toString(32).substring(2);
