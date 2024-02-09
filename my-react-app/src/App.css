@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  height: 100vh; /* ビューポートの高さに合わせる */
+  width: 100vw; /* ビューポートの幅に合わせる */
+  overflow: hidden;
 }
 
 .App-logo {

@@ -2,9 +2,9 @@ import React from 'react';
 import SignInPage from './pages/SignInPage'; // SignInPage コンポーネントをインポート
 import Header from './Header';
 import ToDoApp from "./components/ToDoApp";
-{/*`import logo from './logo.svg';
-import Login from './pages/login';
-import './App.css';`*/}
+import './App.css';
+/* import logo from './logo.svg'; */
+
 
 
 
