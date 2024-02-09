@@ -1,5 +1,6 @@
 import React from 'react';
 import SignInPage from './pages/SignInPage'; // SignInPage コンポーネントをインポート
+import Header from './Header';
 import ToDoApp from "./components/ToDoApp";
 {/*`import logo from './logo.svg';
 import Login from './pages/login';
@@ -9,7 +10,8 @@ import './App.css';`*/}
 
 function App() {
   return (
-    <div className="App">
+    <div classname="App">
+      <Header />
       <header className="App-header">
         <h1>React & Firebase 認証デモ</h1>
       </header>
