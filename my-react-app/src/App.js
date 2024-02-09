@@ -6,8 +6,6 @@ import './App.css';
 /* import logo from './logo.svg'; */
 
 
-
-
 function App() {
   return (
     <div classname="App">
@@ -15,7 +13,7 @@ function App() {
       <header className="App-header">
         <h1>React & Firebase 認証デモ</h1>
       </header>
-      <SignInPage />  // サインインページを表示
+      <SignInPage /> {/*サインインページを表示 */}
     </div>
   );
 }
