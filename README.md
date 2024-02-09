@@ -13,8 +13,14 @@ npm install gh-pages --save-dev
 cd my-react-app
 npm start
 ```
+## 開発環境でビルドするとき
+```
+cd my-react-app
+npm run predeploy
+```
 
 ## 本番環境(GitHubpages)にDeployする時
+※mainにmergeしてからやりましょう。
 ```
 cd my-react-app
 npm run deploy
