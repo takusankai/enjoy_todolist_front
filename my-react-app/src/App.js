@@ -1,9 +1,26 @@
+import React from 'react';
+import SignInPage from './pages/SignInPage'; // SignInPage コンポーネントをインポート
 import ToDoApp from "./components/ToDoApp";
 {/*`import logo from './logo.svg';
 import Login from './pages/login';
 import './App.css';`*/}
 
 
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>React & Firebase 認証デモ</h1>
+      </header>
+      <SignInPage />  // サインインページを表示
+    </div>
+  );
+}
+
+export default App;
+
+/*
 function App() {
   return (
     <div className="container is-fluid">
@@ -11,8 +28,9 @@ function App() {
     </div>
   );
 }
+
 export default App;
-{/*
+{
 function App() {
   return (
     <div className="App">
@@ -39,4 +57,4 @@ function App() {
     </div>
   );
 };
-*/}
+}*/
