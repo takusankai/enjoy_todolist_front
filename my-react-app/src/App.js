@@ -11,7 +11,7 @@ import Settings from './pages/Settings';
 
 function App() {
   return (
-    <div classname="App">
+    <div className="App">
       <Sidebar />
       <Routes>
         <Route path="/" element={<Home />} />
