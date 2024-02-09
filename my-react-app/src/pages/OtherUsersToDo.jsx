@@ -1,8 +1,9 @@
 import React from 'react'
+import "./OtherUsersToDo.css"
 
 function OtherUsersToDo() {
   return (
-    <div>
+    <div className="OtherUsersToDo">
       ここはOtherUsersToDoページです。
     </div>
   )

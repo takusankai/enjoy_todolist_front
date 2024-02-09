@@ -1,8 +1,9 @@
 import React from 'react'
+import "./Settings.css"
 
 function Settings() {
   return (
-    <div>
+    <div className="Settings">
       ここはSettingsページです。
     </div>
   )
