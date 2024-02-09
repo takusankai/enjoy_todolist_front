@@ -3,7 +3,8 @@ import "./OtherUsersToDo.css";
 import { Header } from "../components/OtherUsersTodo/Header";
 import { MessageContainer } from "../components/OtherUsersTodo/MessageContainer";
 
-function OtherUsersToDo() {
+function OtherUsersToDo() 
+{
   const userDetails = [
     {
       "username": "JohnDoe",

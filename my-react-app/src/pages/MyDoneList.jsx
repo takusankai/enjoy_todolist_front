@@ -3,7 +3,8 @@ import "./MyDoneList.css";
 import { Header } from "../components/MyDoneList/Header";
 import { MessageContainer } from "../components/MyDoneList/MessageContainer";
 
-function MyDoneList(){
+function MyDoneList()
+{
   const userDetails = [
     {
       "username": "JohnDoe",
