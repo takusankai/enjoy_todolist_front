@@ -1,7 +1,7 @@
 // src/components/SignIn.js
 import React from 'react';
-import { auth } from '../firebase'; // 適切なパスでインポート
-import firebase from '../firebase/app';
+import { auth } from '../../firebase'; // 適切なパスでインポート
+import firebase from '../..//firebase/app';
 
 const signInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
