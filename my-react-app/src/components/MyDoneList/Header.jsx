@@ -5,7 +5,7 @@ export const Header = ({ userName }) => (
     <div className="ui container">
       <h1 class="ui center aligned header">
         <i class="large icons">
-          <i class="running icon"></i>
+          <i class="green running icon"></i>
           <i class="inverted corner add icon"></i>
         </i>
         { userName } の達成リスト
