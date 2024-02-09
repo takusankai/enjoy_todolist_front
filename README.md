@@ -1,12 +1,13 @@
 # やること
-## React環境の導入
 ## Dockerfileは無視してください。
 ## 読んでわかんない/エラー吐いたらnytsdayoまで電話してください。
+〇Reactに対する知見やコマンドはmy-react-appのREADMEに書こう！
+---
+## React環境の導入
 ```
 cd my-react-app
 // プロジェクトに必要なものをインストール
 npm install
-npm install gh-pages --save-dev
 ```
 ## Localのサーバーを起動
 ```
