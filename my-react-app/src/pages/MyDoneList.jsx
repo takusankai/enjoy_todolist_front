@@ -7,17 +7,17 @@ function MyDoneList(){
   const userDetails = [
     {
       "username": "JohnDoe",
-      "comment": "This is a great post!",
+      "comment": "This is a large step!",
       "post_date": "2024-02-10T12:30:00"
     },
     {
       "username": "JaneSmith",
-      "comment": "Thanks for sharing!",
+      "comment": "Getting to starting!",
       "post_date": "2024-02-10T13:45:00"
     },
     {
       "username": "BobJohnson",
-      "comment": "Interesting discussion!",
+      "comment": "Running App!",
       "post_date": "2024-02-10T14:20:00"
     }
   ];
