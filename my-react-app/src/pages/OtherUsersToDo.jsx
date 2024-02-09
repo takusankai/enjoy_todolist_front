@@ -1,7 +1,7 @@
 import React from 'react';
 import "./OtherUsersToDo.css";
-import { MessageContainer } from "../components/OtherUsersTodo/MessageContainer";
 import { Header } from "../components/OtherUsersTodo/Header";
+import { MessageContainer } from "../components/OtherUsersTodo/MessageContainer";
 
 function OtherUsersToDo() {
   const userDetails = [
