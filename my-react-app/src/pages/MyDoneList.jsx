@@ -1,10 +1,13 @@
 import React from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import "./MyDoneList.css";
 import { Header } from "../components/MyDoneList/Header";
 import { MessageContainer } from "../components/MyDoneList/MessageContainer";
 
 function MyDoneList()
 {
+  const { currentUser } = useAuth()
+
   const userDetails = [
     {
       "username": "JohnDoe",
@@ -23,17 +26,15 @@ function MyDoneList()
     }
   ];
 
-  const userName = userDetails[0].username
-
   return (
     <div className="MyDoneList">
       <Header 
-        userName = {userName}
+        userName = {currentUser.displayName}
       />
       {userDetails.map((user, index) => (
         <MessageContainer
           key      = {index}
-          userName = {user.username}
+          userName = {currentUser.displayName}
           comment  = {user.comment}
           postDate = {user.post_date}
         />

@@ -1,10 +1,13 @@
 import React from 'react'
+import { useAuth } from '../contexts/AuthContext';
 import "./UserInfo.css"
 import { Header } from "../components/UserInfo/Header";
 import { UserInfoContainer } from "../components/UserInfo/UserInfoContainer";
 
 function UserInfo() 
 {
+  const { currentUser } = useAuth()
+
   const userDetails = [
     {
       "username": "JohnDoe",
@@ -32,14 +35,14 @@ function UserInfo()
     <div className="UserInfo">
       <Header />
       <UserInfoContainer 
-        userName = {userDetails[0].username}
-        clearNum = {userDetails[0].clearNum}
+        userName      = {currentUser.displayName}
+        userEmail     = {currentUser.email}
+        clearNum      = {userDetails[0].clearNum}
         motivaMessage = { getAchievementNum(userDetails[0].clearNum, doneTaskRecord, motivaMessage) }
       />
     </div>
   )
 }
-
 
 function getAchievementNum(currrentClearNum, judgeDoneTaskRecord, motivaMessage) 
 {
