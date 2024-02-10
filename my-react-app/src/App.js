@@ -23,10 +23,10 @@ function App() {
       <>
       <Sidebar />
       <Routes>
-        <Route path="/Enjoy_Todolist/" element={<ToDoApp />} />
-        <Route path="/Enjoy_Todolist/my_done_list" element={<MyDoneList />} />
-        <Route path="/Enjoy_Todolist/other_users_todo" element={<OtherUsersToDo />} />
-        <Route path="/Enjoy_Todolist/user_info" element={<UserInfo />} />
+        <Route path="" element={<ToDoApp />} />
+        <Route path="my_done_list" element={<MyDoneList />} />
+        <Route path="other_users_todo" element={<OtherUsersToDo />} />
+        <Route path="user_info" element={<UserInfo />} />
       </Routes>
       </>
       ) : (
