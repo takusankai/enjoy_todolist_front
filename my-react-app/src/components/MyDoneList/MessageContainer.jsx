@@ -11,10 +11,6 @@ export const MessageContainer = ({userName, comment, postDate}) => (
         <div className="left floating ui pink label">22</div>
       </div>
       <div className="item">
-        <i className="icon blue users"></i>
-        { userName }
-      </div>
-      <div className="item">
         <i className="orange clock icon"></i>
         { postDate }
       </div>

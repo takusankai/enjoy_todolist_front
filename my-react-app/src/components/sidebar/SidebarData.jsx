@@ -19,6 +19,10 @@ export const SidebarData = [
     link: "/todo",
   },
   {
+    title: "達成リスト",
+    link: "/my_done_list"
+  },
+  {
     title: "皆のTODO",
     // icon: <AssessmentIcon />,
     link: "/other_users_todo",
