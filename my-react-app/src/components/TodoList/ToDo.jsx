@@ -9,6 +9,9 @@ export const ToDo = (props) => {
   };
   return (
     <label className="panel-block">
+      <button class="mini ui button">
+        削除
+      </button>
       <input
         type="checkbox"
         checked={todo.done}
