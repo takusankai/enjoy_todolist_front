@@ -5,6 +5,7 @@ import "./Sidebar.css";
 function Sidebar() {
   return (
     <div className="Sidebar">
+      <h1 id="SidebarTitle">Enjoy<br/>Todolist</h1>
       <ul className="SidebarList">
         {SidebarData.map((value, key) => {
           return (
@@ -22,6 +23,7 @@ function Sidebar() {
           );
         })}
       </ul>
+        <button className="small ui button" onClick={() => window.location.pathname = "/Enjoy_Todolist/"}>ログアウト</button>
     </div>
   );
 }
