@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import { InputToDo, Filter, ToDo } from '../components/TodoList/index';
+import './ToDoApp.css';
+
 export const  ToDoApp = () => {
   // ランダムなキーを取得
   const getKey = () => Math.random().toString(32).substring(2);
@@ -31,24 +33,26 @@ export const  ToDoApp = () => {
     setToDos(newToDos);
   };
   return (
-    <div className="panel is-warning">
-      <div className="panel-heading">
-        ToDo
-      </div>
-      <InputToDo onAdd={handleAdd} />
-      <Filter
-        onChange={handleFilterChange}
-        value={filter}
-      />
-      {displayToDos.map(todo => (
-        <ToDo
-          key={todo.key}
-          todo={todo}
-          onCheck={handleCheck}
-          />
-      ))}
-      <div className="panel-block">
-        {displayToDos.length} todos
+    <div id="ToDoApp">
+      <div className="panel is-warning">
+        <div className="panel-heading">
+          ToDo
+        </div>
+        <InputToDo onAdd={handleAdd} />
+        <Filter
+          onChange={handleFilterChange}
+          value={filter}
+        />
+        {displayToDos.map(todo => (
+          <ToDo
+            key={todo.key}
+            todo={todo}
+            onCheck={handleCheck}
+            />
+        ))}
+        <div className="panel-block">
+          {displayToDos.length} todos
+        </div>
       </div>
     </div>
   );

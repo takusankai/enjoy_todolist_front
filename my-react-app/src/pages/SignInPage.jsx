@@ -39,7 +39,7 @@ const SignInPage = () => {
   };
 
   return (
-    <div>
+    <div className='SignInPage'>
       <h2>サインインページ</h2>
       {user ? (
         <div>
