@@ -12,7 +12,21 @@ function UserInfo()
     }
   ];
 
-  const motivaMessage = ["やる気だせよ ！！！","君は太陽だ　！！！"]
+  const doneTaskRecord = [
+    0, 
+    10, 
+    30, 
+    60, 
+    100
+  ]
+
+  const motivaMessage  = [
+    "やる気だせよ ！！！",
+    "aaa",
+    "bbb",
+    "ccc",
+    "君は太陽だ　！！！"
+  ]
 
   return (
     <div className="UserInfo">
@@ -20,10 +34,22 @@ function UserInfo()
       <UserInfoContainer 
         userName = {userDetails[0].username}
         clearNum = {userDetails[0].clearNum}
-        motivaMessage = "やる気だせよ ！！！"
+        motivaMessage = { getAchievementNum(userDetails[0].clearNum, doneTaskRecord, motivaMessage) }
       />
     </div>
   )
 }
+
+
+function getAchievementNum(currrentClearNum, judgeDoneTaskRecord, motivaMessage) 
+{
+  for (let index = 0; index < judgeDoneTaskRecord.length; index++) {
+    if (currrentClearNum <= judgeDoneTaskRecord[index]) {
+      return motivaMessage[index];
+    }
+  }
+  return "お前はマスターだ　！！！";
+}
+
 
 export default UserInfo
