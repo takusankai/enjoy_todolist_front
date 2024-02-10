@@ -1,6 +1,8 @@
 import React from "react";
 import { SidebarData } from "./SidebarData";
 import "./Sidebar.css";
+import { getAuth } from 'firebase/auth';
+import { firebaseApp } from '../../firebase/firebaseConfig';
 
 function Sidebar() {
   return (
@@ -23,9 +25,19 @@ function Sidebar() {
           );
         })}
       </ul>
-        <button className="small ui button" onClick={() => window.location.pathname = "/Enjoy_Todolist/"}>ログアウト</button>
+      {/* ボタンを押したらcheckLogOutコンポーネントを開く */}
+      <button className="small ui button" onClick={checkLogOut}>
+        ログアウト</button>
     </div>
   );
+}
+
+function checkLogOut() {
+  // ログアウトするか確認する
+  if (window.confirm("ログアウトしますか？")) {
+    // ログアウトする
+    getAuth(firebaseApp).signOut()
+  }
 }
 
 export default Sidebar;
