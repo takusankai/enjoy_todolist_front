@@ -38,9 +38,14 @@ export const InputToDo = (props) => {
   );
 }
 
-function addDB(text, uid) {
+async function addDB(text, uid) {
+
+  const getKey = () => Math.random().toString(32).substring(2);
+  let send = [];
+
   // 加えたToDoをサーバーに送信
-  const url = 'http://localhost:5001/add_todo';
+  // const url = 'http://localhost:5001/add_todo';
+  const url = 'https://todo-backend-3jiw.onrender.com/add_todo';
   // dataは'uid'と'todo'を持つjson形式データ
   let data = {uid: uid, todo: text};
   fetch(url, {
@@ -57,9 +62,27 @@ function addDB(text, uid) {
     }
     return response.json();
   })
+  .then(data => {
+    console.log("受け取ったdata: ", data);
+    // data１つ１つに処理
+    data.forEach((item) => {
+      console.log(item.TodoName);
+      // 配列sendに追加
+      send.push({ key: getKey(), text: item.TodoName, done: false });
+    });
+  })
   .catch(error => {
     console.error('There was an error!', error);
   });
+
+  // fetchが終わるまで待機
+  while (send[1] == null) {
+    console.log("fetching...");
+    // 1秒待機
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+  return send;
 }
 
 export default InputToDo;
+export { addDB };
