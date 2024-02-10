@@ -57,7 +57,7 @@ function OtherUsersToDo()
       "post_date": "2024-02-10T21:10:00"
     }
   ];
-  
+
 
   return (
     <div className="OtherUsersToDo">
@@ -74,10 +74,15 @@ function OtherUsersToDo()
   );
 }
 
-function getUser()
+function getUser() 
 {
   fetch("http://localhost:5000/recent_todos", {
+    method: "GET",
     credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      // Add any additional headers if needed
+    },
   })
     .then((response) => response.json())
     .then((data) => {
