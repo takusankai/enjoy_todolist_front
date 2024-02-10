@@ -40,7 +40,8 @@ export const InputToDo = (props) => {
 
 function addDB(text, uid) {
   // 加えたToDoをサーバーに送信
-  const url = 'http://localhost:5001/add_todo';
+  // const url = 'http://localhost:5001/add_todo';
+  const url = 'https://todo-backend-3jiw.onrender.com/add_todo';
   // dataは'uid'と'todo'を持つjson形式データ
   let data = {uid: uid, todo: text};
   fetch(url, {
