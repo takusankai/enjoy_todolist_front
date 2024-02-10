@@ -74,4 +74,18 @@ function OtherUsersToDo()
   );
 }
 
+function getUser()
+{
+  fetch("http://localhost:5000/recent_todos", {
+    credentials: "include",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data
+    })
+    .catch((error) => {
+      console.log("error in function getUser : " + error)
+    });
+}
+
 export default OtherUsersToDo;
