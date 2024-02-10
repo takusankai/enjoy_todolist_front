@@ -26,7 +26,7 @@ function MyDoneList()
   const userName = userDetails[0].username
 
   return (
-    <div className="OtherUsersToDo">
+    <div className="MyDoneList">
       <Header 
         userName = {userName}
       />
