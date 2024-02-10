@@ -9,37 +9,22 @@ import React from "react";
 
 export const SidebarData = [
   {
-    title: "ホーム",
-    // icon: <HomeIcon />,
-    link: "/",
-  },
-  {
     title: "TODOリスト",
     // icon: <AttachEmailIcon />,
-    link: "/todo",
+    link: "/Enjoy_Todolist/",
   },
   {
     title: "達成リスト",
-    link: "/my_done_list"
+    link: "/Enjoy_Todolist/my_done_list"
   },
   {
     title: "皆のTODO",
     // icon: <AssessmentIcon />,
-    link: "/other_users_todo",
-  },
-  {
-    title: "ログイン",
-    // icon: <PersonAddIcon />,
-    link: "/login",
+    link: "/Enjoy_Todolist/other_users_todo",
   },
   {
     title: "ユーザー情報",
     // icon: <AddCardIcon />,
-    link: "/user_info",
-  },
-  {
-    title: "設定",
-    // icon: <BackupIcon />,
-    link: "/settings",
+    link: "/Enjoy_Todolist/user_info",
   },
 ];
