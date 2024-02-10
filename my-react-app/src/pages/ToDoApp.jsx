@@ -32,6 +32,11 @@ export const  ToDoApp = () => {
     });
     setToDos(newToDos);
   };
+  // ToDoの削除
+  const handleDelete = key => {
+    const newToDos = todos.filter(todo => todo.key !== key);
+    setToDos(newToDos);
+  };
   return (
     <div id="ToDoApp">
       <div className="panel is-warning">
@@ -48,6 +53,7 @@ export const  ToDoApp = () => {
             key={todo.key}
             todo={todo}
             onCheck={handleCheck}
+            onDelete={handleDelete}
             />
         ))}
         <div className="panel-block">
