@@ -9,7 +9,7 @@ export const UserInfoContainer = ({ userName, userEmail, clearNum, motivaMessage
       <p>達成数 : { clearNum }</p>
     </div>
     <div className="ui raised segment">
-      <div class="ui blue ribbon label">強い心を持つ そのためには 心の根</div>by 松岡修造
+      <div class="ui blue ribbon label">この小さな一歩を……ただただ……積み重ねていけばいい……!</div>
         <div class="ui hidden divider"></div>
         <p>
           { motivaMessage }
