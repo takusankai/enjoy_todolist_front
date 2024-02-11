@@ -76,17 +76,22 @@ function OtherUsersToDo()
   );
 }
 
-function getUserTodos() 
-{
-  fetch("http://localhost:5000/recent_todos", 
-  {
+
+function getUserTodos() {
+
+  return fetch("http://localhost:5000/recent_todos", {
     method      : "GET",
     credentials : "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
-    headers     : {"Content-Type": "application/json", }, // JSONデータで渡してもらう
+    headers     : { "Content-Type": "application/json" }, // JSONデータで渡してもらう
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
     .then((datas) => {
-      const jsonData = datas.map(data => ({
+      const jsonData = datas.map((data) => ({
         // 「フロントエンドでの変数名 : バックエンドでの変数名」に map 変換
         userName    : data.username,
         todoContent : data.TodoName,
@@ -95,8 +100,10 @@ function getUserTodos()
       return jsonData;
     })
     .catch((error) => {
-      console.log("error in function getUser : " + error)
+      console.error("Error in function getUserTodos:", error);
+      throw error; // 例外を再スローして、呼び出し元でエラーを処理できるようにする
     });
 }
+
 
 export default OtherUsersToDo;
