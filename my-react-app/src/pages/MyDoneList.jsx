@@ -41,15 +41,20 @@ function MyDoneList()
   );
 }
 
-function getUserDones() 
-{
+function getUserDones() {
+
   fetch("http://localhost:5000/completed_todos", 
   {
     method      : "GET",
     credentials : "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
-    headers     : {"Content-Type": "application/json", },// JSONデータで渡してもらう
+    headers     : { "Content-Type": "application/json" },// JSONデータで渡してもらう
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Network response error! HTTP Status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then((datas) => {
       const jsonData = datas.map(data => ({
         // 「フロントエンドでの変数名 : バックエンドでの変数名」に map 変換

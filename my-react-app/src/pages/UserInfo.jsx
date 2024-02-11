@@ -75,7 +75,7 @@ function getMyDonesNum() {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(`Network response error! HTTP Status: ${response.status}`);
       }
       return response.json();
     })

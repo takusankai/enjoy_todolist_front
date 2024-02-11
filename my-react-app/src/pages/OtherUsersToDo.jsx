@@ -79,14 +79,14 @@ function OtherUsersToDo()
 
 function getUserTodos() {
 
-  return fetch("http://localhost:5000/recent_todos", {
+  fetch("http://localhost:5000/recent_todos", {
     method      : "GET",
     credentials : "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
     headers     : { "Content-Type": "application/json" }, // JSONデータで渡してもらう
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(`Network response error! HTTP Status: ${response.status}`);
       }
       return response.json();
     })
