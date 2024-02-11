@@ -10,6 +10,7 @@ function UserInfo()
   
   // ↓ バックエンドからデータをもらう処理。データベース接続に成功したらコメントアウトして試す。
   //const clearNum = getMyDonesNum(currentUser.uid) 
+  
   const clearNum = 10
 
   const doneTaskRecord = [
