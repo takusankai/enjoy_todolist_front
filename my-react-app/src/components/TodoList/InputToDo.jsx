@@ -17,10 +17,11 @@ export const InputToDo = (props) => {
       // 入力値が空白文字の場合終了
       if (!text.match(/\S/g) ) return;
       // ToDoAppクラスの「handleAdd」関数を実行
-      props.onAdd(text);
+      const key = Math.random().toString(32).substring(2);
+      props.onAdd(key, text);
       setText('');
-      addDB(text, currentUser.uid);
-      console.log(currentUser.uid);
+      addDB(key, text, currentUser.uid);
+      console.log("add: ", key, text, currentUser.uid);
     }
   };
 
@@ -38,7 +39,7 @@ export const InputToDo = (props) => {
   );
 }
 
-async function addDB(text, uid) {
+async function addDB(key, text, uid) {
 
   const getKey = () => Math.random().toString(32).substring(2);
   let send = [];
@@ -46,7 +47,7 @@ async function addDB(text, uid) {
   // 加えたToDoをサーバーに送信
   const url = 'http://localhost:5001/add_todo';
   // dataは'uid'と'todo'を持つjson形式データ
-  let data = {uid: uid, todo: text};
+  let data = {uid: uid, todo: text, todo_id: key};
   fetch(url, {
     method: 'POST',
     mode: 'cors',
@@ -65,9 +66,9 @@ async function addDB(text, uid) {
     console.log("受け取ったdata: ", data);
     // data１つ１つに処理
     data.forEach((item) => {
-      console.log(item.TodoName);
+      console.log("item: ", item);
       // 配列sendに追加
-      send.push({ key: getKey(), text: item.TodoName, done: false });
+      send.push({ key: item.id, text: item.TodoName, done: false });
     });
   })
   .catch(error => {
@@ -75,7 +76,7 @@ async function addDB(text, uid) {
   });
 
   // fetchが終わるまで待機
-  while (send[1] == null) {
+  while (send[0] == null) {
     console.log("fetching...");
     // 1秒待機
     await new Promise(resolve => setTimeout(resolve, 1000));
