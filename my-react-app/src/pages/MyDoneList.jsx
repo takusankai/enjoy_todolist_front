@@ -61,7 +61,7 @@ function getUserDones()
         // 「フロントでの変数名 : バックでの変数名」に map 変換
         userName   : data.username,
         todoName   : data.TodoName,
-        clearTime : data.ClearTime,
+        clearTime  : data.ClearTime,
       }));
       return jsonData;
     })
