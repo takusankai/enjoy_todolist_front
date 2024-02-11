@@ -44,7 +44,7 @@ async function addDB(text, uid) {
   let send = [];
 
   // 加えたToDoをサーバーに送信
-  // const url = 'http://localhost:5001/add_todo';
+  // const url = 'http://localhost:5000/add_todo';
   const url = 'https://todo-backend-3jiw.onrender.com/add_todo';
   // dataは'uid'と'todo'を持つjson形式データ
   let data = {uid: uid, todo: text};
@@ -65,6 +65,9 @@ async function addDB(text, uid) {
   .then(data => {
     console.log("受け取ったdata: ", data);
     // data１つ１つに処理
+    if (data.message) {
+      return;
+    }
     data.forEach((item) => {
       console.log(item.TodoName);
       // 配列sendに追加
@@ -76,10 +79,16 @@ async function addDB(text, uid) {
   });
 
   // fetchが終わるまで待機
-  while (send[1] == null) {
+  let min=0;
+  while (send[1] == null && min < 5) {
     console.log("fetching...");
     // 1秒待機
     await new Promise(resolve => setTimeout(resolve, 1000));
+    min=min+1;
+  } 
+  if (min >= 5) {
+    console.log("fetching timeout");
+    return "fetching timeout";
   }
   return send;
 }

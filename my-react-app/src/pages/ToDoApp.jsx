@@ -15,12 +15,13 @@ export const  ToDoApp = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await addDB("", currentUser.uid);
-      while (!result) {
+      let min = 0;
+      while (!result && min < 5) {
         console.log("fetching...");
         // 1秒待機
+        min++;
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
-      setToDos(result);
       console.log("result: ", result);
       setIsLoading(false);
     };
