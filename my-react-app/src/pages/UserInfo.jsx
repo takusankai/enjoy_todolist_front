@@ -8,6 +8,18 @@ function UserInfo()
 {
   const { currentUser } = useAuth()
 
+  /* 
+  ↓ バックエンドからデータをもらう処理。データベース接続に成功したらコメントアウトして試す。
+  
+  const jsonData = getMyDonesNum()
+  const userDetails = [
+    {
+      "username": jsonData.username,
+      "clearNum": jsonData.length
+    }
+  ];
+  */
+
   const userDetails = [
     {
       "username": "JohnDoe",
@@ -67,5 +79,27 @@ function getAchievementNum(currrentClearNum, judgeDoneTaskRecord, motivaMessage)
   return "お前はマスターだ　！！！";
 }
 
+function getMyDonesNum() 
+{
+  fetch("http://localhost:5000/completed_todos", {
+    method: "GET",
+    credentials: "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
+    headers: {
+      "Content-Type": "application/json", // JSONデータで渡してもらう
+    },
+  })
+    .then((response) => response.json())
+    .then((datas) => {
+      const jsonData = datas.map(data => ({
+        // 「フロントでの変数名 : バックでの変数名」に map 変換
+        userName   : data.username,
+        todoName   : data.TodoName,
+      }));
+      return jsonData;
+    })
+    .catch((error) => {
+      console.log("error in function getUser : " + error)
+    });
+}
 
 export default UserInfo
