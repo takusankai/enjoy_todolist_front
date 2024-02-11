@@ -91,8 +91,7 @@ function getMyDonesNum()
     .then((datas) => {
       const jsonData = datas.map(data => ({
         // 「フロントエンドでの変数名 : バックエンドでの変数名」に map 変換
-        userName   : data.username,
-        todoName   : data.TodoName,
+        todoName : data.TodoName,
       }));
       return jsonData;
     })
