@@ -9,7 +9,7 @@ function MyDoneList()
   const { currentUser } = useAuth()
 
   // ↓ バックエンドからデータをもらう処理。データベース接続に成功したらコメントアウトして試す。
-  //const userDetails = getUserTodos()
+  //const userDetails = getUserDones()
 
   const userDetails = [
     {
@@ -46,7 +46,7 @@ function MyDoneList()
   );
 }
 
-function getUserTodos() 
+function getUserDones() 
 {
   fetch("http://localhost:5000/completed_todos", {
     method: "GET",
