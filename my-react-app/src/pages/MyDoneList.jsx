@@ -13,17 +13,14 @@ function MyDoneList()
 
   const userDetails = [
     {
-      "userName": "JohnDoe",
       "todoContent": "This is a large step!",
       "completedAt": "2024-02-10T12:30:00"
     },
     {
-      "userName": "JaneSmith",
       "todoContent": "Getting to starting!",
       "completedAt": "2024-02-10T13:45:00"
     },
     {
-      "userName": "BobJohnson",
       "todoContent": "Running App!",
       "completedAt": "2024-02-10T14:20:00"
     }
