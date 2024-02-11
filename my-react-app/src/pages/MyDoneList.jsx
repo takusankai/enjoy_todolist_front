@@ -47,7 +47,7 @@ function getUserDones() {
   {
     method      : "GET",
     credentials : "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
-    headers     : { "Content-Type": "application/json" },// JSONデータで渡してもらう
+    headers     : { "Content-Type": "application/json" }, // JSONデータで渡してもらう
   })
     .then((response) => {
       if (!response.ok) {
