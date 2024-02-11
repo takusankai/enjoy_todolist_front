@@ -34,10 +34,8 @@ function MyDoneList()
       <Header 
         userName = {currentUser.displayName}
       />
-      {userDetails.map((user, index) => (
+      {userDetails.map((user) => (
         <MessageContainer
-          key      = {index}
-          userName = {currentUser.displayName}
           comment  = {user.todoContent}
           postDate = {user.completedAt}
         />
@@ -58,7 +56,6 @@ function getUserDones()
     .then((datas) => {
       const jsonData = datas.map(data => ({
         // 「フロントエンドでの変数名 : バックエンドでの変数名」に map 変換
-        userName    : data.username,
         todoContent : data.TodoName,
         completedAt : data.ClearTime,
       }));
