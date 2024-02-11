@@ -1,10 +1,11 @@
-import React from 'react';
 import "./OtherUsersToDo.css";
 import { Header } from "../components/OtherUsersTodo/Header";
 import { MessageContainer } from "../components/OtherUsersTodo/MessageContainer";
 
 function OtherUsersToDo() 
 {
+  //const userDetails = getUser()
+
   const userDetails = [
     {
       "username": "JohnDoe",
@@ -78,15 +79,20 @@ function getUser()
 {
   fetch("http://localhost:5000/recent_todos", {
     method: "GET",
-    credentials: "include",
+    credentials: "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
     headers: {
-      "Content-Type": "application/json",
-      // Add any additional headers if needed
+      "Content-Type": "application/json", // JSONデータで渡してもらう
     },
   })
     .then((response) => response.json())
-    .then((data) => {
-      return data
+    .then((datas) => {
+      const jsonData = datas.map(data => ({
+        // 「フロントでの変数名 : バックでの変数名」に map 変換
+        userName   : data.username,
+        todoName   : data.TodoName,
+        createTime : data.ClearTime,
+      }));
+      return jsonData;
     })
     .catch((error) => {
       console.log("error in function getUser : " + error)
