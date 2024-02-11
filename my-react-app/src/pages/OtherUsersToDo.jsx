@@ -67,9 +67,9 @@ function OtherUsersToDo()
       {userDetails.map((user, index) => (
         <MessageContainer
           key={index}
-          userName={user.username}
-          comment={user.comment}
-          postDate={user.post_date}
+          userName={user.userName}
+          comment={user.todoContent}
+          postDate={user.createdAt}
         />
       ))}
     </div>
