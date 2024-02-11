@@ -4,7 +4,8 @@ import { MessageContainer } from "../components/OtherUsersTodo/MessageContainer"
 
 function OtherUsersToDo() 
 {
-  //const userDetails = getUser()
+  // ↓ バックエンドからデータをもらう処理。データベース接続に成功したらコメントアウトして試す。
+  //const userDetails = getUserTodos()
 
   const userDetails = [
     {
@@ -75,7 +76,7 @@ function OtherUsersToDo()
   );
 }
 
-function getUser() 
+function getUserTodos() 
 {
   fetch("http://localhost:5000/recent_todos", {
     method: "GET",
@@ -90,7 +91,7 @@ function getUser()
         // 「フロントでの変数名 : バックでの変数名」に map 変換
         userName   : data.username,
         todoName   : data.TodoName,
-        createTime : data.ClearTime,
+        createTime : data.CreateTime,
       }));
       return jsonData;
     })
