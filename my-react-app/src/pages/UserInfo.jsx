@@ -8,24 +8,10 @@ function UserInfo()
 {
   const { currentUser } = useAuth()
 
-  /* 
-  ↓ バックエンドからデータをもらう処理。データベース接続に成功したらコメントアウトして試す。
   
-  const jsonData = getMyDonesNum()
-  const userDetails = [
-    {
-      "username": jsonData[0].username,
-      "clearNum": jsonData[0].length
-    }
-  ];
-  */
-
-  const userDetails = [
-    {
-      "username": "JohnDoe",
-      "clearNum": 10
-    }
-  ];
+  // ↓ バックエンドからデータをもらう処理。データベース接続に成功したらコメントアウトして試す。
+  // const clearNum = getMyDonesNum() 
+  const clearNum = 10
 
   const doneTaskRecord = [
     0, 
@@ -62,8 +48,8 @@ function UserInfo()
       <UserInfoContainer 
         userName      = {currentUser.displayName}
         userEmail     = {currentUser.email}
-        clearNum      = {userDetails[0].clearNum}
-        motivaMessage = { getAchievementNum(userDetails[0].clearNum, doneTaskRecord, motivaMessage) }
+        clearNum      = {clearNum}
+        motivaMessage = { getAchievementNum(clearNum, doneTaskRecord, motivaMessage) }
       />
     </div>
   )
@@ -79,24 +65,25 @@ function getAchievementNum(currrentClearNum, judgeDoneTaskRecord, motivaMessage)
   return "お前はマスターだ　！！！";
 }
 
-function getMyDonesNum() 
-{
-  fetch("http://localhost:5000/completed_todos", 
-  {
+
+function getMyDonesNum() {
+
+  fetch("http://localhost:5000/completed_todos", {
     method      : "GET",
     credentials : "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
-    headers     : {"Content-Type": "application/json", }, // JSONデータで渡してもらう
+    headers     : { "Content-Type": "application/json" }, // JSONデータで渡してもらう
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
     .then((datas) => {
-      const jsonData = datas.map(data => ({
-        // 「フロントエンドでの変数名 : バックエンドでの変数名」に map 変換
-        todoName : data.TodoName,
-      }));
-      return jsonData;
+      return datas.length;
     })
     .catch((error) => {
-      console.log("error in function getUser : " + error)
+      console.log("Error in function getMyDonesNum: " + error);
     });
 }
 
