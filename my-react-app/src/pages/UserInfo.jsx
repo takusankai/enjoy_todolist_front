@@ -14,8 +14,8 @@ function UserInfo()
   const jsonData = getMyDonesNum()
   const userDetails = [
     {
-      "username": jsonData.username,
-      "clearNum": jsonData.length
+      "username": jsonData[0].username,
+      "clearNum": jsonData[0].length
     }
   ];
   */
@@ -90,7 +90,7 @@ function getMyDonesNum()
     .then((response) => response.json())
     .then((datas) => {
       const jsonData = datas.map(data => ({
-        // 「フロントでの変数名 : バックでの変数名」に map 変換
+        // 「フロントエンドでの変数名 : バックエンドでの変数名」に map 変換
         userName   : data.username,
         todoName   : data.TodoName,
       }));

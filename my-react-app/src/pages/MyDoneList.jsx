@@ -57,7 +57,7 @@ function getUserDones()
     .then((response) => response.json())
     .then((datas) => {
       const jsonData = datas.map(data => ({
-        // 「フロントでの変数名 : バックでの変数名」に map 変換
+        // 「フロントエンドでの変数名 : バックエンドでの変数名」に map 変換
         userName    : data.username,
         todoContent : data.TodoName,
         completedAt : data.ClearTime,
