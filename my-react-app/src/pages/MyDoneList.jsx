@@ -48,12 +48,11 @@ function MyDoneList()
 
 function getUserDones() 
 {
-  fetch("http://localhost:5000/completed_todos", {
-    method: "GET",
-    credentials: "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
-    headers: {
-      "Content-Type": "application/json", // JSONデータで渡してもらう
-    },
+  fetch("http://localhost:5000/completed_todos", 
+  {
+    method      : "GET",
+    credentials : "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
+    headers     : {"Content-Type": "application/json", },// JSONデータで渡してもらう
   })
     .then((response) => response.json())
     .then((datas) => {
