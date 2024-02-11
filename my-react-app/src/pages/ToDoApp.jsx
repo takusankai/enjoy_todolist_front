@@ -14,9 +14,8 @@ export const  ToDoApp = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await addDB("", currentUser.uid);
-      let min = 0;
-      while (!result && min < 5) {
+      const result = await addDB("", "", currentUser.uid);
+      while (!result) {
         console.log("fetching...");
         // 1秒待機
         min++;
@@ -30,8 +29,8 @@ export const  ToDoApp = () => {
 
   const [filter, setFilter] = useState('ALL');
   // 入力値をtodos(配列)に設定
-  const handleAdd = text => {
-    setToDos([...todos, { key: getKey(), text, done: false }]);
+  const handleAdd = (key, text) => {
+    setToDos([...todos, { key: key, text, done: false }]);
   };
   // フィルターの切り替え
   const handleFilterChange = value => setFilter(value);
@@ -87,4 +86,5 @@ export const  ToDoApp = () => {
     );
   }
 }
+
 export default ToDoApp;

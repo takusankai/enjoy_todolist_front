@@ -17,10 +17,11 @@ export const InputToDo = (props) => {
       // 入力値が空白文字の場合終了
       if (!text.match(/\S/g) ) return;
       // ToDoAppクラスの「handleAdd」関数を実行
-      props.onAdd(text);
+      const key = Math.random().toString(32).substring(2);
+      props.onAdd(key, text);
       setText('');
-      addDB(text, currentUser.uid);
-      console.log(currentUser.uid);
+      addDB(key, text, currentUser.uid);
+      console.log("add: ", key, text, currentUser.uid);
     }
   };
 
@@ -38,7 +39,7 @@ export const InputToDo = (props) => {
   );
 }
 
-async function addDB(text, uid) {
+async function addDB(key, text, uid) {
 
   const getKey = () => Math.random().toString(32).substring(2);
   let send = [];
@@ -47,7 +48,7 @@ async function addDB(text, uid) {
   // const url = 'http://localhost:5000/add_todo';
   const url = 'https://todo-backend-3jiw.onrender.com/add_todo';
   // dataは'uid'と'todo'を持つjson形式データ
-  let data = {uid: uid, todo: text};
+  let data = {uid: uid, todo: text, todo_id: key};
   fetch(url, {
     method: 'POST',
     mode: 'cors',
@@ -69,9 +70,9 @@ async function addDB(text, uid) {
       return;
     }
     data.forEach((item) => {
-      console.log(item.TodoName);
+      console.log("item: ", item);
       // 配列sendに追加
-      send.push({ key: getKey(), text: item.TodoName, done: false });
+      send.push({ key: item.id, text: item.TodoName, done: false });
     });
   })
   .catch(error => {
