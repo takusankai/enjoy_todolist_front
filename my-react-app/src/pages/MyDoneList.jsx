@@ -65,6 +65,7 @@ function getUserDones() {
     })
     .catch((error) => {
       console.log("error in function getUser : " + error)
+      throw error; // 例外を再スローして、呼び出し元でエラーを処理できるようにする
     });
 }
 
