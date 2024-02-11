@@ -84,6 +84,7 @@ function getMyDonesNum() {
     })
     .catch((error) => {
       console.log("Error in function getMyDonesNum: " + error);
+      throw error;
     });
 }
 
