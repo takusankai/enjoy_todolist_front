@@ -7,10 +7,9 @@ import { UserInfoContainer } from "../components/UserInfo/UserInfoContainer";
 function UserInfo() 
 {
   const { currentUser } = useAuth()
-
   
   // ↓ バックエンドからデータをもらう処理。データベース接続に成功したらコメントアウトして試す。
-  // const clearNum = getMyDonesNum() 
+  //const clearNum = getMyDonesNum(currentUser.uid) 
   const clearNum = 10
 
   const doneTaskRecord = [
@@ -66,9 +65,9 @@ function getAchievementNum(currrentClearNum, judgeDoneTaskRecord, motivaMessage)
 }
 
 
-function getMyDonesNum() {
+function getMyDonesNum(uid) {
 
-  fetch("http://localhost:5000/completed_todos", {
+  fetch(`http://localhost:5000/completed_todos?uid=${uid}`, {
     method      : "GET",
     credentials : "include", // サーバー側でユーザーの認証情報を参照できるようにしておく
     headers     : { "Content-Type": "application/json" }, // JSONデータで渡してもらう
