@@ -13,19 +13,19 @@ function MyDoneList()
 
   const userDetails = [
     {
-      "username": "JohnDoe",
-      "comment": "This is a large step!",
-      "post_date": "2024-02-10T12:30:00"
+      "userName": "JohnDoe",
+      "todoContent": "This is a large step!",
+      "completedAt": "2024-02-10T12:30:00"
     },
     {
-      "username": "JaneSmith",
-      "comment": "Getting to starting!",
-      "post_date": "2024-02-10T13:45:00"
+      "userName": "JaneSmith",
+      "todoContent": "Getting to starting!",
+      "completedAt": "2024-02-10T13:45:00"
     },
     {
-      "username": "BobJohnson",
-      "comment": "Running App!",
-      "post_date": "2024-02-10T14:20:00"
+      "userName": "BobJohnson",
+      "todoContent": "Running App!",
+      "completedAt": "2024-02-10T14:20:00"
     }
   ];
 
@@ -38,8 +38,8 @@ function MyDoneList()
         <MessageContainer
           key      = {index}
           userName = {currentUser.displayName}
-          comment  = {user.comment}
-          postDate = {user.post_date}
+          comment  = {user.todoContent}
+          postDate = {user.completedAt}
         />
       ))}
     </div>
@@ -59,9 +59,9 @@ function getUserDones()
     .then((datas) => {
       const jsonData = datas.map(data => ({
         // 「フロントでの変数名 : バックでの変数名」に map 変換
-        userName   : data.username,
-        todoName   : data.TodoName,
-        clearTime  : data.ClearTime,
+        userName    : data.username,
+        todoContent : data.TodoName,
+        completedAt : data.ClearTime,
       }));
       return jsonData;
     })
