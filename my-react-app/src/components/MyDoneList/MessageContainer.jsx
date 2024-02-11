@@ -1,6 +1,6 @@
 import React from "react";
 
-export const MessageContainer = ({userName, comment, postDate}) => (
+export const MessageContainer = ({comment, postDate}) => (
   <div>
     <div className="ui big message">
         { comment }
